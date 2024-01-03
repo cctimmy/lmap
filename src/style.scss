@@ -1,0 +1,32 @@
+// make popup content located bottom-left
+.leaflet-popup {
+  margin: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+.leaflet-popup-tip-container,
+.leaflet-popup-close-button {
+  display: none;
+}
+
+
+// make div icon located center (which icon is 24*24)
+.leaflet-div-icon{
+  background: transparent;
+  border: none;
+  > div {
+    position: absolute;
+    left: -50%;
+    bottom: 0;
+  }
+}
