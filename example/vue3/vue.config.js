@@ -1,4 +1,4 @@
-const { defineConfig } = require("@vue/cli-service");
+const { defineConfig } = require('@vue/cli-service')
 const { resolve } = require('path')
 
 module.exports = defineConfig({
@@ -6,8 +6,8 @@ module.exports = defineConfig({
   configureWebpack: {
     resolve: {
       alias: {
-        '~': resolve(__dirname, '../../dist'),
+        '~': resolve(__dirname, '../../dist')
       }
-    },
+    }
   }
-});
+})
