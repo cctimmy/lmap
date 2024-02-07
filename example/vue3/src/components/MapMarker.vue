@@ -1,10 +1,11 @@
 <template>
-  <Marker />
+  <Marker @click="onClick" />
 </template>
 <script setup lang="tsx">
 import { Ref } from 'vue'
 
 const props = defineProps<{
+  onClick: () => void
   state?: Ref<{
     color: string
     icon: string

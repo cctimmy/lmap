@@ -12,5 +12,5 @@
     // "module": "es6",
     // "resolveJsonModule": true,
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules","example"]
 }

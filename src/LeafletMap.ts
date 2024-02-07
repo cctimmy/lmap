@@ -1,13 +1,26 @@
 import * as L from 'leaflet'
 
 export class LeafletMap extends L.Map {
-  constructor(container: string | HTMLElement, mapOption: L.MapOptions = {}) {
-    super(container, {
+  constructor(mapOption: L.MapOptions = {}) {
+    const dom = document.createElement('div')
+    dom.style.cssText = `
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    `
+
+    super(dom, {
       ...mapOption,
       attributionControl: false,
       zoomControl: false,
       preferCanvas: true
     })
+  }
+
+  /** the map container should be "relative" position  */
+  mount(containerDom: HTMLDivElement) {
+    containerDom.appendChild(this.getContainer())
+    this.invalidateSize()
   }
 
   async flyToAsync(latlng: L.LatLngExpression, zoom: number, options?: L.ZoomPanOptions) {
