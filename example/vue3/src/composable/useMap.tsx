@@ -5,7 +5,9 @@ import {
   BaseLayerMap,
   BaseLayerTitle,
   LeafletMarkerLayer,
-  ILeafletMarkerOption
+  ILeafletMarkerOption,
+  LeafletRoutingGoogle,
+  TravelMode
 } from '~/index'
 
 export const useMap = () => {
@@ -46,6 +48,17 @@ export const useMap = () => {
       leafletMap.mount(containerRef.value)
     })
   }
+
+  ;(async () => {
+    const route = await LeafletRoutingGoogle.init({
+      travelMode: TravelMode.DRIVING,
+      apiKey: process.env.VUE_APP_G_API_KEY
+    })
+    route.route([
+      [24.986732, 121.545357], // 木柵景美溪橋口
+      [24.999328, 121.547299] // 興隆景華街口
+    ])
+  })()
 
   return { flyTo, mount, createVueAppEl, createClusterMarkers, leafletMap, leafletMarkerLayer }
 }
