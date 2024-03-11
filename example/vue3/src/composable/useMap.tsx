@@ -5,7 +5,8 @@ import {
   BaseLayerMap,
   BaseLayerTitle,
   LeafletMarkerLayer,
-  ILeafletMarkerOption
+  ILeafletMarkerOption,
+  LeafletOSRM
 } from '~/index'
 
 export const useMap = () => {
@@ -44,6 +45,16 @@ export const useMap = () => {
       }
       resolve.value = true
       leafletMap.mount(containerRef.value)
+      /**
+       * OSRM
+       * @link https://router.project-osrm.org/route/v1/driving/121.545357,24.986732;121.547299,24.999328
+       */
+
+      new LeafletOSRM(
+        { lat: 24.986732, lng: 121.545357 },
+        { lat: 24.999328, lng: 121.547299 },
+        leafletMap
+      )
     })
   }
 
